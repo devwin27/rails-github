@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col md-4">
+            
+            <h1>Sign in to GitHub</h1>
+            <%= form_tag sessions_path do |form| %>
+            <p id='alert'><%= alert %></p>
+            <div class='field'>
+                <p>Username or email address</p>
+                <%= text_field_tag :email, '', class: 'w-100' %>
+            </div>
+            <div class='field'>
+                <%= label_tag :password %><br>
+                <%= password_field_tag :password, '', class: 'w-100' %>
+            </div>
+            <div class='actions'>
+                <%= submit_tag 'Login', class: 'btn btn-success w-100' %>
+            </div>
+            <% end %>
+            <div class="d-flex">
+              <p>New to GitHub?</p><%= link_to 'Create an account', signup_path, class: 'btn-link ml-3' %>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+</div>

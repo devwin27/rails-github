@@ -1,0 +1,14 @@
+
+<p id='notice'><%= notice %></p>
+
+<h1>Repository</h1>
+
+<ul>
+    <% @repositorys.each do |repository| %>
+        <li>
+            <%= link_to repository.name, repository %>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "New repository", new_repository_path %>

@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Blog</title>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "GitHub" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "GitHub" %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+    <header>
+        <% if current_user %>
+        <%= render 'layouts/navigation' %>
+        <% else %>
+        <%= render 'layouts/public-nav' %>
+        <% end %>
+    </header>
+    <main role="main">
+            <%= yield %>
+    </main>
+</body>
+
 </html>

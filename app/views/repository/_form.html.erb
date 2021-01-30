@@ -1,0 +1,35 @@
+<%= form_with model: repository do |form| %>
+    <div>
+        <%=  form.label :name %>
+        <%= form.text_field :name %>
+        <%= repository.errors.full_messages_for(:name).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+
+    <div>
+        <%=  form.label :body %>
+        <%= form.text_field :body %>
+        <%= repository.errors.full_messages_for(:body).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+
+    <div>
+        <%=  form.label :type %>
+        <%= form.text_field :type %>
+        <%= repository.errors.full_messages_for(:type).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

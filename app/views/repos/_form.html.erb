@@ -1,0 +1,35 @@
+<%= form_with model: repo do |form| %>
+    <div>
+        <%=  form.label :name %>
+        <%= form.text_field :name %>
+        <%= repo.errors.full_messages_for(:name).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+
+    <div>
+        <%=  form.label :body %>
+        <%= form.text_field :body %>
+        <%= repo.errors.full_messages_for(:body).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+
+    <div>
+        <%=  form.label :type_repo %>
+        <%= form.text_field :type_repo %>
+        <%= repo.errors.full_messages_for(:type_repo).each do |message| %>
+            <div>
+                <%= message %>
+            </div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>
+    <%= @repository.name %>
+</h1>
+
+<p>
+    <%= @repository.body %>
+</p>
+<ul>
+    <li>
+        <%= link_to "Edit", edit_repository_path(@repository) %>
+    </li>
+    <li>
+        <%= link_to "Destroy", repository_path(@repository), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
+</ul>
+

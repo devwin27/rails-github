@@ -1,0 +1,68 @@
+<div class="container-fluid row c-vh-100 pt-3">
+    <div class="col-md-12">
+        <div class="d-flex">
+            <a>
+                <% if @repo.type_repo == 'private' %>
+                <i class="mr-2 fa fa-lock" aria-hidden="true"></i>
+                <% else %>
+                <i class="mr-2 fa fa-tv" aria-hidden="true"></i>
+                <% end %>
+                <%= @repo.name %>
+                <span class="type_repo"><%= @repo.type_repo %></span>
+            </a>
+            <%= link_to "Edit", edit_repo_path(@repo), class: 'ml-auto btn btn-secondary' %>
+            <%= link_to "Destroy", repo_path(@repo), class: 'btn btn-secondary ml-2', method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active tabs-item p-3" onclick="paintIt(event)">
+                    <i class="mr-2 fa fa-code"></i>Code</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tabs-item p-3" onclick="paintIt(event)">
+                    <i class="mr-2 fa fa-info-circle"></i>Issues</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tabs-item p-3" onclick="paintIt(event)">
+                    <i class="mr-2 fa fa-code-branch"></i>Pull requests</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tabs-item p-3" onclick="paintIt(event)">
+                    <i class="mr-2 fa fa-play-circle"></i>Actions</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tabs-item p-3" onclick="paintIt(event)">
+                    <i class="mr-2 fa fa-tasks"></i>Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tabs-item p-3" onclick="paintIt(event)">
+                    <i class="mr-2 fa fa-book-open"></i>Wiki</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tabs-item p-3" onclick="paintIt(event)">
+                    <i class="mr-2 fa fa-shield-alt"></i>Security</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tabs-item p-3" onclick="paintIt(event)">
+                    <i class="mr-2 fa fa-chart-line"></i>Insights</a>
+            </li>
+        </ul>
+        <div class="text-center">
+            <%= image_tag "repos.PNG" %>
+        </div>
+    </div>
+</div>
+
+<script>
+
+window.paintIt = function (event) {
+    event.preventDefault();
+    let tabs = document.getElementsByClassName('tabs-item p-3')
+    for(let i = 0; i < tabs.length; i++){
+        if(tabs[i].classList.contains('active'))tabs[i].classList.remove('active')
+    }
+    event.target.classList.add('active')
+    
+}
+
+</script>

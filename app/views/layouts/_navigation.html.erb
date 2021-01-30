@@ -1,0 +1,39 @@
+<nav class="navbar navbar-dark navbar-static-top navbar-expand-md">
+    <div class="container-fluid">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+        </button> <%= link_to '<svg style="background: #fff" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>'.html_safe, root_path, class: 'navbar-brand' %>
+        <form class="search-form form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search or jump to" aria-label="Search">
+            <button class="btn search-btn my-2 my-sm-0" type="submit">/</button>
+        </form>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav mr-auto">
+                <li class='nav-item'><%= link_to 'Pull requests', articles_path, class: 'nav-link' %></li>
+                <li class='nav-item'><%= link_to 'Issues', users_path, class: 'nav-link' %></li>
+                <li class='nav-item'><%= link_to 'Marketplace', users_path, class: 'nav-link' %></li>
+                <li class='nav-item'><%= link_to 'Explore', users_path, class: 'nav-link' %></li>
+                </li>
+            </ul>
+        </div>
+        <%= link_to '<i class="fa fa-bell" aria-hidden="true"></i>'.html_safe, articles_path, class: 'nav-link' %>
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <i class="fa fa-plus"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Link 1</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <%= current_user.email %>
+            </a>
+            <div class="dropdown-menu">
+                <%= link_to 'Sign out', logout_path, class: 'dropdown-item' %>
+            </div>
+        </div>
+    </div>
+</nav>
